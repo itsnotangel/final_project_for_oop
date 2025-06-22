@@ -10,3 +10,21 @@ class Grid:
             for column in range(self.num_columns):
                 print(self.grid[row][column], end = " ")
             print()
+
+    def get_cell_colors(self):
+
+        dark_grey = (26, 31, 40)
+        green = (47, 230, 23)
+        red = (232, 18, 19)
+        orange = (226, 116, 17)
+        yellow = (237, 234, 4 )
+        purple = (166, 0, 247)
+        cyan = (21, 204, 209)
+        blue = (13, 64, 216)
+
+        return [dark_grey, green, red, orange, yellow, purple, cyan, blue]
+    
+    def draw(self):
+        for row in range(self.num_rows):
+            for column in range(self.num_columns):
+                cell_value = self.grid[row][column]
