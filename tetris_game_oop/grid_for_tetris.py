@@ -4,3 +4,9 @@ class Grid:
         self.num_columns = 10
         self.cell_size = 30
         self.grid = [[0 for j in range(self.num_columns)] for i in range(self.num_rows)]
+
+    def print_grid(self):
+        for row in range(self.num_rows):
+            for column in range(self.num_columns):
+                print(self.grid[row][column], end = " ")
+            print()
