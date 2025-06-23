@@ -1,5 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
+import subprocess
+import sys
+import os
 
 class GamePickerApp:
     def __init__(self, root):
@@ -31,6 +34,7 @@ class GamePickerApp:
             pady=12,
             width=12,
             height=2,
+            command=self.launch_tetris
         )
         tetris_button.pack(pady=(30, 5))
 
@@ -110,6 +114,21 @@ class GamePickerApp:
             bg="#2c3e50"
         )
         main_menu_label.pack()
+
+    def launch_tetris(self):
+        try:
+            # Get absolute path to Tetris main.py
+            script_dir = os.path.dirname(os.path.abspath(__file__))  # current file location
+            tetris_path = os.path.join(script_dir, "..", "tetris_game_oop", "main.py")
+            tetris_path = os.path.abspath(tetris_path)
+
+            if os.path.exists(tetris_path):
+                subprocess.Popen([sys.executable, tetris_path])
+                messagebox.showinfo("Game Launched", "Tetris has been launched!")
+            else:
+                messagebox.showerror("Error", f"Tetris game not found at:\n{tetris_path}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to launch Tetris:\n{str(e)}")
 
 if __name__ == "__main__":
     root = tk.Tk()
