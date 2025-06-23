@@ -79,6 +79,7 @@ class GamePickerApp:
             pady=12,
             width=12,
             height=2,
+            command=self.exit_app
         )
         exit_button.pack(pady=5)
 
@@ -130,6 +131,9 @@ class GamePickerApp:
         except Exception as e:
             messagebox.showerror("Error", f"Failed to launch Tetris:\n{str(e)}")
 
+    def exit_app(self):
+        self.root.destroy()
+        
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
