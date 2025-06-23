@@ -2,7 +2,10 @@ import pygame, sys
 
 pygame.init()
 
-screen = pygame.display.set_mode((750, 750))
+GREEN = (173, 204, 96)
+DARK_GREEN = (43, 51, 24)
+
+screen = pygame.display.set_mode((550, 550))
 
 pygame.display.set_caption("Retro Snake")
 
@@ -14,5 +17,6 @@ while True:
             pygame.quit()
             sys.exit()
 
+    screen.fill(GREEN)
     pygame.display.update()
     clock.tick(60)
