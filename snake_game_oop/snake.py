@@ -32,7 +32,6 @@ class Snake:
 		for segment in self.body:
 			segment_rect = (segment.x * cell_size, segment.y * cell_size, cell_size, cell_size)
 			pygame.draw.rect(screen, DARK_GREEN, segment_rect, 0, 7)
-    
 
 	def update(self):
 		self.body = self.body[:-1]
@@ -48,13 +47,16 @@ food = Food()
 snake = Snake()
 food_surface = pygame.image.load("graphics/food.png")
 
+SNAKE_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(SNAKE_UPDATE, 200)
+
 while True:
     for event in pygame.event.get():
+        if event.type == SNAKE_UPDATE:
+              snake.update()
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
-    snake.update()
 
     screen.fill(GREEN)
     food.draw()
