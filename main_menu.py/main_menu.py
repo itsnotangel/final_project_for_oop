@@ -88,6 +88,20 @@ class GamePickerApp:
         )
         exit_desc.pack(pady=(0, 15))
 
+        # Title on the right side
+        title_frame = tk.Frame(right_frame, bg="#2c3e50")
+        title_frame.pack(expand=True)
+
+        game_launcher_label = tk.Label(
+            title_frame,
+            text="Game\nLauncher",
+            font=("Arial", 28, "bold"),
+            fg="white",
+            bg="#2c3e50",
+            justify="center"
+        )
+        game_launcher_label.pack(expand=True)
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
