@@ -34,6 +34,16 @@ class GamePickerApp:
         )
         tetris_button.pack(pady=(30, 5))
 
+        tetris_desc = tk.Label(
+            left_frame,
+            text="Classic puzzle game\nwith falling blocks",
+            font=("Arial", 9),
+            fg="lightgray",
+            bg="#2c3e50",
+            justify="center"
+        )
+        tetris_desc.pack(pady=(0, 15))
+
         quiz_button = tk.Button(
             left_frame,
             text="Quiz",
@@ -46,6 +56,16 @@ class GamePickerApp:
         )
         quiz_button.pack(pady=5)
 
+        quiz_desc = tk.Label(
+            left_frame,
+            text="Test your knowledge\nwith trivia questions",
+            font=("Arial", 9),
+            fg="lightgray",
+            bg="#2c3e50",
+            justify="center"
+        )
+        quiz_desc.pack(pady=(0, 15))
+
         exit_button = tk.Button(
             left_frame,
             text="Exit",
@@ -57,6 +77,16 @@ class GamePickerApp:
             height=2,
         )
         exit_button.pack(pady=5)
+
+        exit_desc = tk.Label(
+            left_frame,
+            text="Close the application\nand return to desktop",
+            font=("Arial", 9),
+            fg="lightgray",
+            bg="#2c3e50",
+            justify="center"
+        )
+        exit_desc.pack(pady=(0, 15))
 
 if __name__ == "__main__":
     root = tk.Tk()
