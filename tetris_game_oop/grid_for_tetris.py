@@ -6,6 +6,7 @@ class Grid:
         self.num_columns = 10
         self.cell_size = 30
         self.grid = [[0 for j in range(self.num_columns)] for i in range(self.num_rows)]
+        self.colors = self.get_cell_colors()
 
     def print_grid(self):
         for row in range(self.num_rows):
@@ -30,6 +31,6 @@ class Grid:
         for row in range(self.num_rows):
             for column in range(self.num_columns):
                 cell_value = self.grid[row][column]
-                cell_rect = pygame.Rect(column*self.cell_size, row*self.cell_size,
-                self.cell_size, self.cell_size)
+                cell_rect = pygame.Rect(column*self.cell_size +1, row*self.cell_size +1,
+                self.cell_size -1, self.cell_size -1)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect)
