@@ -10,17 +10,22 @@ cell_size = 30
 number_of_cells = 25
 
 class Food:
-    def __init__(self):
-        self.position = self.generate_random_pos()
+    def __init__(self, snake_body):
+        self.position = self.generate_random_pos(snake_body)
         
     def draw(self):
         food_rect = pygame.Rect(self.position.x * cell_size, self.position.y * cell_size, cell_size, cell_size)
         screen.blit(food_surface, food_rect)
 
-    def generate_random_pos(self):
+    def generate_random_cell(self):
         x = random.randint(0, number_of_cells -1)
         y = random.randint(0, number_of_cells -1)
-        position = Vector2(x, y)
+        return Vector2(x, y)
+
+    def generate_random_pos(self, snake_body):
+        position = self.generate_random_cell()
+        while position in snake_body:
+            position = self.generate_random_cell()
         return position
 
 class Snake:
@@ -40,7 +45,7 @@ class Snake:
 class Game:
     def __init__(self):
         self.snake = Snake()
-        self.food = Food()
+        self.food = Food(self.snake.body)
 
     def draw(self):
         self.food.draw()
@@ -52,7 +57,7 @@ class Game:
             
     def check_collision_with_food(self):
         if self.snake.body[0] == self.food.position:
-            self.food.position = self.food.generate_random_pos()
+            self.food.position = self.food.generate_random_pos(self.snake.body)
 
 screen = pygame.display.set_mode((cell_size*number_of_cells, cell_size*number_of_cells))
 
