@@ -22,6 +22,42 @@ class GamePickerApp:
         right_frame.pack(side="right", fill="y")
         right_frame.pack_propagate(False)
 
+        tetris_button = tk.Button(
+            left_frame,
+            text="Tetris",
+            font=("Arial", 12, "bold"),
+            bg="#e74c3c",
+            fg="white",
+            pady=12,
+            width=12,
+            height=2,
+        )
+        tetris_button.pack(pady=(30, 5))
+
+        quiz_button = tk.Button(
+            left_frame,
+            text="Quiz",
+            font=("Arial", 12, "bold"),
+            bg="#3498db",
+            fg="white",
+            pady=12,
+            width=12,
+            height=2,
+        )
+        quiz_button.pack(pady=5)
+
+        exit_button = tk.Button(
+            left_frame,
+            text="Exit",
+            font=("Arial", 12, "bold"),
+            bg="#95a5a6",
+            fg="white",
+            pady=12,
+            width=12,
+            height=2,
+        )
+        exit_button.pack(pady=5)
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
