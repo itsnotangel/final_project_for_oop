@@ -3,11 +3,13 @@ from pygame.math import Vector2
 
 pygame.init()
 
+title_font = pygame.font.Font(None, 60)
+
 GREEN = (173, 204, 96)
 DARK_GREEN = (43, 51, 24)
 
-cell_size = 30
-number_of_cells = 25
+cell_size = 20
+number_of_cells = 20
 
 OFFSET = 75
 
@@ -126,6 +128,8 @@ while True:
     pygame.draw.rect(screen, DARK_GREEN, 
 		(OFFSET-5, OFFSET-5, cell_size*number_of_cells+10, cell_size*number_of_cells+10), 5)
     game.draw()
+    title_surface = title_font.render("Retro Snake", True, DARK_GREEN)
+    screen.blit(title_surface, (OFFSET-5, 20))
 
     pygame.display.update()
     clock.tick(60)
