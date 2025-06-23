@@ -59,13 +59,13 @@ while True:
             sys.exit()
 
         if event.type == pygame.KEYDOWN:
-              if event.key == pygame.K_UP:
+              if event.key == pygame.K_UP and game.snake.direction != Vector2(0, 1):
                     snake.direction = Vector2(0, -1)
-              if event.key == pygame.K_DOWN:
+              if event.key == pygame.K_DOWN and game.snake.direction != Vector2(0, -1):
                     snake.direction = Vector2(0, 1)
-              if event.key == pygame.K_LEFT:
+              if event.key == pygame.K_LEFT and game.snake.direction != Vector2(1,0):
                     snake.direction = Vector2(-1, 0)
-              if event.key == pygame.K_RIGHT:
+              if event.key == pygame.K_RIGHT and game.snake.direction != Vector2(-1, 0):
                     snake.direction = Vector2(1, 0)
 
     screen.fill(GREEN)
