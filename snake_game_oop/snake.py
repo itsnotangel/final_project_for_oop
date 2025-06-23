@@ -9,6 +9,8 @@ DARK_GREEN = (43, 51, 24)
 cell_size = 30
 number_of_cells = 25
 
+OFFSET = 75
+
 class Food:
     def __init__(self, snake_body):
         self.position = self.generate_random_pos(snake_body)
@@ -88,7 +90,7 @@ class Game:
         if self.snake.body[0] in headless_body:
             self.game_over()
 
-screen = pygame.display.set_mode((cell_size*number_of_cells, cell_size*number_of_cells))
+screen = pygame.display.set_mode((2*OFFSET + cell_size*number_of_cells, 2*OFFSET + cell_size*number_of_cells))
 
 pygame.display.set_caption("Retro Snake")
 
@@ -121,6 +123,8 @@ while True:
                 game.snake.direction = Vector2(1, 0)
 
     screen.fill(GREEN)
+    pygame.draw.rect(screen, DARK_GREEN, 
+		(OFFSET-5, OFFSET-5, cell_size*number_of_cells+10, cell_size*number_of_cells+10), 5)
     game.draw()
 
     pygame.display.update()
