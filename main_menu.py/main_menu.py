@@ -8,6 +8,15 @@ class GamePickerApp:
         self.root.geometry("500x500")
         self.root.configure(bg="#2c3e50")
 
+        # Create main container frame
+        main_frame = tk.Frame(root, bg="#2c3e50")
+        main_frame.pack(expand=True, fill="both", padx=30, pady=30)
+
+        # Left side frame for buttons (thinner width)
+        left_frame = tk.Frame(main_frame, bg="#2c3e50", width=200)
+        left_frame.pack(side="left", fill="y", padx=(0, 20))
+        left_frame.pack_propagate(False)  
+        
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
