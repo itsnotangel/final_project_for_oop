@@ -50,13 +50,14 @@ class GamePickerApp:
 
         quiz_button = tk.Button(
             left_frame,
-            text="Quiz",
+            text="Snake Game",
             font=("Arial", 12, "bold"),
             bg="#3498db",
             fg="white",
             pady=12,
             width=12,
             height=2,
+            command=self.launch_snake
         )
         quiz_button.pack(pady=5)
 
@@ -130,6 +131,20 @@ class GamePickerApp:
                 messagebox.showerror("Error", f"Tetris game not found at:\n{tetris_path}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to launch Tetris:\n{str(e)}")
+
+    def launch_snake(self):
+        try:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            quiz_path = os.path.join(script_dir, "..", "snake_game_oop", "snake.py") 
+            quiz_path = os.path.abspath(quiz_path)
+
+            if os.path.exists(quiz_path):
+                subprocess.Popen([sys.executable, quiz_path])
+                messagebox.showinfo("Game Launched", "Quiz Game has been launched!")
+            else:
+                messagebox.showerror("Error", f"Quiz game not found at:\n{quiz_path}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to launch Quiz:\n{str(e)}")
 
     def exit_app(self):
         self.root.destroy()
