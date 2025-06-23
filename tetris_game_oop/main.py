@@ -1,6 +1,6 @@
 import pygame,sys
 from grid_for_tetris import Grid
-from individual_blocks import LBlock
+from individual_blocks import *
 
 pygame.init()
 dark_blue = (44, 44, 127)
@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-blocks_for_tetris = LBlock()
+blocks_for_tetris = TBlock()
 
 while True:
     for event in pygame.event.get():
