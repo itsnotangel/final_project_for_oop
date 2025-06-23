@@ -1,8 +1,11 @@
 import pygame,sys
 from game import Game
+from colors_for_tetris import Colors
 
 pygame.init()
-dark_blue = (44, 44, 127)
+
+title_font = pygame.font.Font(None, 40)
+score_surface = title_font.render("Score", True, Colors.white)
 
 screen = pygame.display.set_mode((500, 620))
 pygame.display.set_caption("Python Tetris")
@@ -34,7 +37,8 @@ while True:
         if event.type == GAME_UPDATE and game.game_over == False:
             game.move_down()
 
-        screen.fill(dark_blue)
+        screen.fill(Colors.dark_blue)
+        screen.blit(score_surface, (365, 20, 50, 50))
         game.draw(screen)
 
         pygame.display.update()
