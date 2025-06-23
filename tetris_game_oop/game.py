@@ -43,6 +43,9 @@ class Game:
         if self.block_fits() == False:
             self.game_over = True
 
+    def reset(self):
+         self.grid.reset()
+
     def block_fits(self):
         tiles = self.current_block.get_cell_positions()
         for tile in tiles:
