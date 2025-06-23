@@ -13,6 +13,7 @@ clock = pygame.time.Clock()
 game_grid = Grid()
 
 blocks_for_tetris = TBlock()
+blocks_for_tetris.move(4, 3)
 
 while True:
     for event in pygame.event.get():
