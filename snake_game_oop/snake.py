@@ -15,7 +15,7 @@ class Food:
         
     def draw(self):
         food_rect = pygame.Rect(self.position.x * cell_size, self.position.y * cell_size, cell_size, cell_size)
-        pygame.draw.rect(screen, DARK_GREEN, food_rect)
+        screen.blit(food_surface, food_rect)
 
 screen = pygame.display.set_mode((cell_size*number_of_cells, cell_size*number_of_cells))
 
@@ -24,6 +24,7 @@ pygame.display.set_caption("Retro Snake")
 clock = pygame.time.Clock()
 
 food = Food()
+food_surface = pygame.image.load("graphics/food.png")
 
 while True:
     for event in pygame.event.get():
