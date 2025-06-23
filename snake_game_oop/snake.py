@@ -23,6 +23,15 @@ class Food:
         position = Vector2(x, y)
         return position
 
+class Snake:
+	def __init__(self):
+		self.body = [Vector2(6, 9), Vector2(5,9), Vector2(4,9)]
+          
+	def draw(self):
+		for segment in self.body:
+			segment_rect = (segment.x * cell_size, segment.y * cell_size, cell_size, cell_size)
+			pygame.draw.rect(screen, DARK_GREEN, segment_rect)
+               
 screen = pygame.display.set_mode((cell_size*number_of_cells, cell_size*number_of_cells))
 
 pygame.display.set_caption("Retro Snake")
@@ -30,6 +39,7 @@ pygame.display.set_caption("Retro Snake")
 clock = pygame.time.Clock()
 
 food = Food()
+snake = Snake()
 food_surface = pygame.image.load("graphics/food.png")
 
 while True:
@@ -40,6 +50,7 @@ while True:
 
     screen.fill(GREEN)
     food.draw()
+    snake.draw()
 
     pygame.display.update()
     clock.tick(60)
