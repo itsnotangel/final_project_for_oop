@@ -65,6 +65,7 @@ class Game:
             self.snake.update()
             self.check_collision_with_food()
             self.check_collision_with_edges()
+            self.check_collision_with_tail()
             
     def check_collision_with_food(self):
         if self.snake.body[0] == self.food.position:
@@ -81,6 +82,11 @@ class Game:
         self.snake.reset()
         self.food.position = self.food.generate_random_pos(self.snake.body)
         self.state = "STOPPED"
+        
+    def check_collision_with_tail(self):
+        headless_body = self.snake.body[1:]
+        if self.snake.body[0] in headless_body:
+            self.game_over()
 
 screen = pygame.display.set_mode((cell_size*number_of_cells, cell_size*number_of_cells))
 
