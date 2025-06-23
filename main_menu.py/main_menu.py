@@ -102,6 +102,15 @@ class GamePickerApp:
         )
         game_launcher_label.pack(expand=True)
 
+        main_menu_label = tk.Label(
+            title_frame,
+            text="Main Menu",
+            font=("Arial", 16),
+            fg="lightgray",
+            bg="#2c3e50"
+        )
+        main_menu_label.pack()
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
