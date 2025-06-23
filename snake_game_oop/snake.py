@@ -16,7 +16,7 @@ class Food:
         self.position = self.generate_random_pos(snake_body)
         
     def draw(self):
-        food_rect = pygame.Rect(self.position.x * cell_size, self.position.y * cell_size, cell_size, cell_size)
+        food_rect = pygame.Rect(OFFSET + self.position.x * cell_size, OFFSET + self.position.y * cell_size, cell_size, cell_size)
         screen.blit(food_surface, food_rect)
 
     def generate_random_cell(self):
@@ -38,7 +38,7 @@ class Snake:
         
     def draw(self):
         for segment in self.body:
-            segment_rect = (segment.x * cell_size, segment.y * cell_size, cell_size, cell_size)
+            segment_rect = (OFFSET + segment.x * cell_size, OFFSET + segment.y * cell_size, cell_size, cell_size)
             pygame.draw.rect(screen, DARK_GREEN, segment_rect, 0, 7)
             
     def update(self):
