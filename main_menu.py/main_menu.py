@@ -16,7 +16,12 @@ class GamePickerApp:
         left_frame = tk.Frame(main_frame, bg="#2c3e50", width=200)
         left_frame.pack(side="left", fill="y", padx=(0, 20))
         left_frame.pack_propagate(False)  
-        
+
+        # Right side frame for title (thinner width)
+        right_frame = tk.Frame(main_frame, bg="#2c3e50", width=200)
+        right_frame.pack(side="right", fill="y")
+        right_frame.pack_propagate(False)
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
