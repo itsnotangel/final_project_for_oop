@@ -54,11 +54,11 @@ while True:
     if game.game_over:
         screen.blit(game_over_surface, (320, 450))
 
-    pygame.draw.rect(screen, Colors.white, score_rect, border_radius=10)
-    score_value_surface = title_font.render(str(game.score), True, Colors.dark_blue)
+    pygame.draw.rect(screen, Colors.light_blue, score_rect, border_radius=10)
+    score_value_surface = title_font.render(str(game.score), True, Colors.white)
     screen.blit(score_value_surface, score_value_surface.get_rect(center=score_rect.center))
 
-    pygame.draw.rect(screen, Colors.white, next_rect, border_radius=10)
+    pygame.draw.rect(screen, Colors.light_blue, next_rect, border_radius=10)
 
     game.draw(screen)
 
