@@ -48,7 +48,7 @@ class GamePickerApp:
         )
         tetris_desc.pack(pady=(0, 15))
 
-        quiz_button = tk.Button(
+        snake_game_button = tk.Button(
             left_frame,
             text="Snake Game",
             font=("Arial", 12, "bold"),
@@ -59,9 +59,9 @@ class GamePickerApp:
             height=2,
             command=self.launch_snake
         )
-        quiz_button.pack(pady=5)
+        snake_game_button.pack(pady=5)
 
-        quiz_desc = tk.Label(
+        snake_game_desc = tk.Label(
             left_frame,
             text="Slither, eat, and grow\n in this retro classic!",
             font=("Arial", 9),
@@ -69,7 +69,7 @@ class GamePickerApp:
             bg="#2c3e50",
             justify="center"
         )
-        quiz_desc.pack(pady=(0, 15))
+        snake_game_desc.pack(pady=(0, 15))
 
         exit_button = tk.Button(
             left_frame,
