@@ -135,8 +135,8 @@ class GamePickerApp:
                 messagebox.showinfo("Game Launched", "Tetris has been launched!")
             else:
                 messagebox.showerror("Error", f"Tetris game not found at:\n{tetris_path}")
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to launch Tetris:\n{str(e)}")
+        except Exception:
+            messagebox.showerror("Error", "Failed to launch Tetris due to an unexpected error.")
  
     # Function to launch the Snake game
     def launch_snake(self):
@@ -150,8 +150,8 @@ class GamePickerApp:
                 messagebox.showinfo("Game Launched", "Snake Game has been launched!")
             else:
                 messagebox.showerror("Error", f"Snake game not found at:\n{quiz_path}")
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to launch Snake:\n{str(e)}")
+        except Exception:
+            messagebox.showerror("Error", "Failed to launch Tetris due to an unexpected error.")
  
     # Function to exit the application
     def exit_app(self):
