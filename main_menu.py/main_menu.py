@@ -140,11 +140,11 @@ class GamePickerApp:
 
             if os.path.exists(quiz_path):
                 subprocess.Popen([sys.executable, quiz_path])
-                messagebox.showinfo("Game Launched", "Quiz Game has been launched!")
+                messagebox.showinfo("Game Launched", "Snake Game has been launched!")
             else:
-                messagebox.showerror("Error", f"Quiz game not found at:\n{quiz_path}")
+                messagebox.showerror("Error", f"Snake game not found at:\n{quiz_path}")
         except Exception as e:
-            messagebox.showerror("Error", f"Failed to launch Quiz:\n{str(e)}")
+            messagebox.showerror("Error", f"Failed to launch Snake:\n{str(e)}")
 
     def exit_app(self):
         self.root.destroy()
