@@ -27,37 +27,40 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.KEYDOWN: 
-            if game.game_over == True:
-                game.game_over = False
+
+        if event.type == pygame.KEYDOWN:
+            if game.game_over:
                 game.reset()
-            if event.key == pygame.K_LEFT and game.game_over == False:
-                game.move_left()
-            if event.key == pygame.K_RIGHT and game.game_over == False:
-                game.move_right()
-            if event.key == pygame.K_DOWN and game.game_over == False:
-                game.move_down()
-                game.update_score(0, 1)
-            if event.key == pygame.K_UP and game.game_over == False:
-                game.rotate()
-        if event.type == GAME_UPDATE and game.game_over == False:
+                game.game_over = False
+            elif not game.game_over:
+                if event.key == pygame.K_LEFT:
+                    game.move_left()
+                elif event.key == pygame.K_RIGHT:
+                    game.move_right()
+                elif event.key == pygame.K_DOWN:
+                    game.move_down()
+                    game.update_score(0, 1)
+                elif event.key == pygame.K_UP:
+                    game.rotate()
+
+        if event.type == GAME_UPDATE and not game.game_over:
             game.move_down()
 
+    screen.fill(Colors.dark_blue)
 
-        score_value_surface = title_font.render(str(game.score), True, Colors.dark_blue)
+    screen.blit(score_surface, (365, 20))
+    screen.blit(next_surface, (375, 180))
 
-        screen.fill(Colors.dark_blue)
-        screen.blit(score_surface, (365, 20, 50, 50))
-        screen.blit(next_surface, (375, 180, 50, 50))
+    if game.game_over:
+        screen.blit(game_over_surface, (320, 450))
 
-        if game.game_over == True:
-            screen.blit(game_over_surface, (320, 450, 50, 50))
+    pygame.draw.rect(screen, Colors.white, score_rect, border_radius=10)
+    score_value_surface = title_font.render(str(game.score), True, Colors.dark_blue)
+    screen.blit(score_value_surface, score_value_surface.get_rect(center=score_rect.center))
 
-        pygame.draw.rect(screen, Colors.white, score_rect, 0, 10)
-        screen.blit(score_value_surface, score_value_surface.get_rect(centerx = score_rect.centerx, 
-            centery = score_rect.centery))
-        pygame.draw.rect(screen, Colors.white, next_rect, 0, 10)
-        game.draw(screen)
+    pygame.draw.rect(screen, Colors.white, next_rect, border_radius=10)
 
-        pygame.display.update()
-        clock.tick(60)
+    game.draw(screen)
+
+    pygame.display.update()
+    clock.tick(60)
