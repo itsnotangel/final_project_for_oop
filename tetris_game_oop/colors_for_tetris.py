@@ -1,3 +1,4 @@
+# Class to define and manage color values used in the Tetris game
 class Colors:
         dark_grey = (26, 31, 40)
         green = (47, 230, 23)
