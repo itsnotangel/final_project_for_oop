@@ -1,9 +1,11 @@
+# Import necessary libraries
 import tkinter as tk
 from tkinter import messagebox
 import subprocess
 import sys
 import os
 
+# Define the main application class
 class GamePickerApp:
     def __init__(self, root):
         self.root = root
@@ -25,6 +27,7 @@ class GamePickerApp:
         right_frame.pack(side="right", fill="y")
         right_frame.pack_propagate(False)
 
+        # Tetris button and description
         tetris_button = tk.Button(
             left_frame,
             text="Tetris",
@@ -48,6 +51,7 @@ class GamePickerApp:
         )
         tetris_desc.pack(pady=(0, 15))
 
+        # Snake game button and description
         snake_game_button = tk.Button(
             left_frame,
             text="Snake Game",
@@ -70,7 +74,8 @@ class GamePickerApp:
             justify="center"
         )
         snake_game_desc.pack(pady=(0, 15))
-
+ 
+        # Exit button and description
         exit_button = tk.Button(
             left_frame,
             text="Exit",
@@ -117,6 +122,7 @@ class GamePickerApp:
         )
         main_menu_label.pack()
 
+    # Function to launch the Tetris game
     def launch_tetris(self):
         try:
             # Get absolute path to Tetris main.py
@@ -131,7 +137,8 @@ class GamePickerApp:
                 messagebox.showerror("Error", f"Tetris game not found at:\n{tetris_path}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to launch Tetris:\n{str(e)}")
-
+ 
+    # Function to launch the Snake game
     def launch_snake(self):
         try:
             script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -145,10 +152,12 @@ class GamePickerApp:
                 messagebox.showerror("Error", f"Snake game not found at:\n{quiz_path}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to launch Snake:\n{str(e)}")
-
+ 
+    # Function to exit the application
     def exit_app(self):
         self.root.destroy()
         
+# Entry point for the application
 if __name__ == "__main__":
     root = tk.Tk()
     app = GamePickerApp(root)
