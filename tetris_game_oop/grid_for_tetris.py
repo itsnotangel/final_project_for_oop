@@ -1,6 +1,7 @@
 import pygame
 from colors_for_tetris import Colors
 
+# Grid class to manage the Tetris grid, including its dimensions, cell states, and rendering
 class Grid:
     def __init__(self):
         self.num_rows = 20
