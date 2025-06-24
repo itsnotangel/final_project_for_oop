@@ -1,19 +1,24 @@
 import pygame, sys, random
 from pygame.math import Vector2
 
+# Initialize Pygame
 pygame.init()
 
+# Fonts for the title and score display
 title_font = pygame.font.Font(None, 60)
 score_font = pygame.font.Font(None, 40)
 
+# Define constants for colors and game settings
 GREEN = (0, 40, 0)         
 DARK_RED = (139, 0, 0) 
 
+# Game configuration
 cell_size = 23
 number_of_cells = 20
 
 OFFSET = 75
 
+# Load and scale the food image
 class Food:
     def __init__(self, snake_body):
         self.position = self.generate_random_pos(snake_body)
@@ -33,6 +38,7 @@ class Food:
             position = self.generate_random_cell()
         return position
 
+# Snake class to manage the snake's body and movement
 class Snake:
     def __init__(self):
         self.body = [Vector2(6, 9), Vector2(5, 9), Vector2(4, 9)]
@@ -55,6 +61,7 @@ class Snake:
         self.body = [Vector2(6,9), Vector2(5,9), Vector2(4,9)]
         self.direction = Vector2(1, 0)
 
+# Main game class to manage the game state, snake, and food
 class Game:
     def __init__(self):
         self.snake = Snake()
@@ -80,22 +87,26 @@ class Game:
             self.score += 1
     
     def check_collision_with_edges(self):
+        # End game if snake hits wall
         if self.snake.body[0].x == number_of_cells or self.snake.body[0].x == -1:
             self.game_over()
         if self.snake.body[0].y == number_of_cells or self.snake.body[0].y == -1:
             self.game_over()
             
     def game_over(self):
+        # Reset game state
         self.snake.reset()
         self.food.position = self.food.generate_random_pos(self.snake.body)
         self.state = "STOPPED"
         self.score = 0 
         
     def check_collision_with_tail(self):
+        # End game if snake bites itself
         headless_body = self.snake.body[1:]
         if self.snake.body[0] in headless_body:
             self.game_over()
 
+# Create game window
 screen = pygame.display.set_mode((2*OFFSET + cell_size*number_of_cells, 2*OFFSET + cell_size*number_of_cells))
 
 pygame.display.set_caption("Retro Snake")
@@ -108,6 +119,7 @@ food_surface = pygame.transform.scale(pygame.image.load("graphics/food_for_the_s
 SNAKE_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SNAKE_UPDATE, 200)
 
+# Main game loop
 while True:
     for event in pygame.event.get():
         if event.type == SNAKE_UPDATE:
@@ -128,10 +140,15 @@ while True:
             if event.key == pygame.K_RIGHT and game.snake.direction != Vector2(-1, 0):
                 game.snake.direction = Vector2(1, 0)
 
+    # Drawn background and game elements
     screen.fill(GREEN)
     pygame.draw.rect(screen, DARK_RED, 
 		(OFFSET-5, OFFSET-5, cell_size*number_of_cells+10, cell_size*number_of_cells+10), 5)
+
+    # Draw game objects (snake, food)
     game.draw()
+
+    # Draw UI (title and score)
     title_surface = title_font.render("Retro Snake", True, DARK_RED)
     score_surface = score_font.render(str(game.score), True, DARK_RED)
     screen.blit(title_surface, (OFFSET-5, 20))
