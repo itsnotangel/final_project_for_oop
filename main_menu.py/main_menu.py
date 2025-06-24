@@ -21,7 +21,7 @@ class GamePickerApp:
         left_frame.pack_propagate(False)  
 
         # Right side frame for title (thinner width)
-        right_frame = tk.Frame(main_frame, bg="#2c3e50", width=200)
+        right_frame = tk.Frame(main_frame, bg="#2c3e50", width=280)
         right_frame.pack(side="right", fill="y")
         right_frame.pack_propagate(False)
 
@@ -63,7 +63,7 @@ class GamePickerApp:
 
         quiz_desc = tk.Label(
             left_frame,
-            text="Test your knowledge\nwith trivia questions",
+            text="Slither, eat, and grow\n in this retro classic!",
             font=("Arial", 9),
             fg="lightgray",
             bg="#2c3e50",
@@ -75,7 +75,7 @@ class GamePickerApp:
             left_frame,
             text="Exit",
             font=("Arial", 12, "bold"),
-            bg="#95a5a6",
+            bg="#9179a4",
             fg="white",
             pady=12,
             width=12,
@@ -100,7 +100,7 @@ class GamePickerApp:
 
         game_launcher_label = tk.Label(
             title_frame,
-            text="Game\nLauncher",
+            text="Retro Game\nVault",
             font=("Arial", 28, "bold"),
             fg="white",
             bg="#2c3e50",
@@ -120,7 +120,7 @@ class GamePickerApp:
     def launch_tetris(self):
         try:
             # Get absolute path to Tetris main.py
-            script_dir = os.path.dirname(os.path.abspath(__file__))  # current file location
+            script_dir = os.path.dirname(os.path.abspath(__file__)) 
             tetris_path = os.path.join(script_dir, "..", "tetris_game_oop", "main.py")
             tetris_path = os.path.abspath(tetris_path)
 
