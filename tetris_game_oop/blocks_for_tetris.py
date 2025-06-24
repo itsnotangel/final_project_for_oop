@@ -2,6 +2,7 @@ from colors_for_tetris import Colors
 import pygame
 from position_for_tetris import Position
 
+# Base class for Tetris blocks
 class Block:
     def __init__(self, id):
         self.id = id
