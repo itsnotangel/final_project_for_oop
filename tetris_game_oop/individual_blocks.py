@@ -1,6 +1,7 @@
 from blocks_for_tetris import Block
 from position_for_tetris import Position
 
+# L-shaped block (LBlock) definition
 class LBlock(Block):
 	def __init__(self):
 		super().__init__(id = 1)
@@ -11,7 +12,8 @@ class LBlock(Block):
 			3: [Position(0, 0), Position(0, 1), Position(1, 1), Position(2, 1)]
 		}
 		self.move(0, 3)
-          
+
+# J-shaped block (JBlock) definition
 class JBlock(Block):
     def __init__(self):
         super().__init__(id = 2)
@@ -23,6 +25,7 @@ class JBlock(Block):
         }
         self.move(0, 3)
 
+# I-shaped block (IBlock) definition
 class IBlock(Block):
     def __init__(self):
         super().__init__(id = 3)
@@ -34,6 +37,7 @@ class IBlock(Block):
         }
         self.move(-1, 3)
 
+# O-shaped block (OBlock) definition
 class OBlock(Block):
     def __init__(self):
         super().__init__(id = 4)
@@ -42,6 +46,7 @@ class OBlock(Block):
         }
         self.move(0, 4)
 
+# S-shaped block (SBlock) definition
 class SBlock(Block):
     def __init__(self):
         super().__init__(id = 5)
@@ -53,6 +58,7 @@ class SBlock(Block):
         }
         self.move(0, 3)
 
+# T-shaped block (TBlock) definition
 class TBlock(Block):
     def __init__(self):
         super().__init__(id = 6)
@@ -64,6 +70,7 @@ class TBlock(Block):
         }
         self.move(0, 3)
 
+# Z-shaped block (ZBlock) definition
 class ZBlock(Block):
     def __init__(self):
         super().__init__(id = 7)
