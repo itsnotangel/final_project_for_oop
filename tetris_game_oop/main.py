@@ -1,5 +1,5 @@
 # Import necessary modules
-import pygame,sys
+import pygame, sys
 from game import Game
 from colors_for_tetris import Colors
 
