@@ -7,7 +7,7 @@ import os
 class GamePickerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Python Game Picker")
+        self.root.title("Welcome to Retro Game Vault!")
         self.root.geometry("500x500")
         self.root.configure(bg="#2c3e50")
 
